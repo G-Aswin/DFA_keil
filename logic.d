@@ -1,0 +1,1 @@
+.\logic.o: logic.s

@@ -1,0 +1,2 @@
+Dependencies for Project 'DFA', Target 'Target 1': (DO NOT MODIFY !)
+F (.\logic.s)(0x60DF23D7)(--cpu ARM7TDMI --bi --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include--list .\logic.lst --xref -o .\logic.o --depend .\logic.d)
