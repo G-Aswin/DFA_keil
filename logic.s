@@ -2,8 +2,8 @@
 START
 ;	AIM of this Project: to simulate the functioning of a Deterministic Finite Automata in machine code
 ;	Accepted Strings in this automata: (i times 0 then j times 1) such that i, j >= 0 and i+j is even.  
-;										Examples : 01, 0011, 0001, 11 are accepted
-;												   10, 011, 0110 are rejected.
+;	Examples : 	01, 0011, 0001, 11 are accepted
+;			10, 011, 0110 are rejected.
 
 ; Implementation Specification: register r1 contains the string that goes through dfa (max size 8)
 ;								register r0 contains the size of this user string
@@ -18,12 +18,12 @@ START
 
 
 	LDR R0, = 0x8					;size of user string
-	LDR r1, = 0x00011111			;user string
+	LDR r1, = 0x00011111				;user string
 	LDR r4, = 0x0					;curr
 	LDR r5, = 0x0					;next state
-	LDR r6, = TRANSITION_TABLE		;base address of the transition table
+	LDR r6, = TRANSITION_TABLE			;base address of the transition table
 	LDR R8, = 0x8				
-	LDR r9, = 0x10000000			;to get the first bit by AND
+	LDR r9, = 0x10000000				;to get the first bit by AND
 	
 ;	SUBS r0, r0, #1
 LOOP
@@ -62,17 +62,17 @@ ACCEPT
 
 ; transition table for this DFA
 
-; 	curr     for 0    for 1
-; 	0		  1         2
-; 	1		  0         3
-; 	2		  4			3
-; 	3		  4			2
-; 	4		  4			4
+; 	curr	for 0	for 1
+; 	0	1	2
+; 	1	0	3
+; 	2	4	3
+; 	3	4	2
+; 	4	4	4
 
-TRANSITION_TABLE    ;all these values will be stored in dynamic memory starting from 0x20
+TRANSITION_TABLE    		;all these values will be stored in dynamic memory starting from 0x20
 	DCD 0x1,0x2,0x0,0x3,0x4,0x3,0x4,0x2,0x4,0x4		
 
-ACCEPTED_STATES		;list of accepted states
+ACCEPTED_STATES			;list of accepted states
 	DCD 0x0,0x3
 	
 	END 
