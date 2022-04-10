@@ -13,3 +13,25 @@ This is a project written in ARM7 code with the aim of simulating how a Determin
     3. Place your String to be tested in REG r1
     4. Enter the size of your string in REG r0
     5. Run `logic.s`
+
+## DFA details
+
+Accepted Strings in this automata: (i times 0 then j times 1) such that i, j >= 0 and i+j is even.  
+
+Examples : 	01, 0011, 0001, 11 are accepted<br>
+			10, 011, 0110 are rejected.
+
+
+### Transition table for this DFA
+
+| Current State | On input "0" | On input "1" |
+|---------------|--------------|--------------|
+| ->*0             | 1            | 2            |
+| 1             | 0            | 3            |
+| 2             | 4            | 3            |
+| *3             | 4            | 2            |
+| 4             | 4            | 4            |
+
+### Transition Diagram
+
+![Transition Diagram](/transition_diagram.png)
